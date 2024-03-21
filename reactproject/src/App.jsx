@@ -1,11 +1,15 @@
+import Login from "./Login";
+import Profile from "./Profile";
+import UserContextProvider from "./context/UserContextProvider";
 
 function App() {
   
   return (
-    <>
-      <h1> React project with Vite</h1>
-    </>
+    <UserContextProvider> 
+      <Login/> 
+      <Profile/>
+    </UserContextProvider>
   )
 }
 
-export default App
+export default App;

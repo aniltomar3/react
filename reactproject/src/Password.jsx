@@ -1,4 +1,4 @@
-import React,{useCallback, useEffect, useState,useRef} from 'react';
+import {useCallback, useEffect, useState,useRef} from 'react';
 
 function Password(){
 const [length,setLength]= useState(8);
@@ -32,14 +32,15 @@ const passwordGenerator= useCallback(()=>{
     }
  return(
  <>
-  <div className='w-full max-w-md mx-auto rounded-lg'>
+  <div className='w-full max-w-md mx-auto shadow-md  bg-gray-800  px-4 my-8 text-orange-500 rounded-lg'>
     <h1 className='text-white text-center'>Password Generator</h1>
-        <div className='flex rounded-lg overflow-hidden mb-4'>
+        <div className='flex shadow rounded-lg overflow-hidden mb-4'>
          <input type="text" value={password} className='outline-none w-full' placeholder='password' readOnly  ref={passWordRef} />   
-         <button className='outline-none bg-blue-700 text-white' onClick={copyPassword}>Copy</button>
+         <button className='outline-none bg-blue-700 text-white px-3 py-1' onClick={copyPassword}>Copy</button>
         </div>
-        <div className='flex items-center gap-x-2'>
-         <input type="range" min={6} max={100}  value={length} className='cursor-pointer' onChange={(e)=>{ setLength(e.target.value)}} />   
+    <div className='flex gap-x-4'> 
+        <div className='flex items-center gap-x-1'>
+         <input type="range" min={6} max={30}  value={length} className='cursor-pointer' onChange={(e)=>{ setLength(e.target.value)}} />   
          <label>{length}</label>
         </div>
         <div className='flex items-center gap-x-1'>
@@ -50,6 +51,7 @@ const passwordGenerator= useCallback(()=>{
          <input type="checkbox" id="charInput" onChange={()=>{ setcharAllowed( (pre)=> !pre)    }}  />   
          <label htmlFor="charInput">Characters</label>
         </div>
+    </div>  
   </div>
  </>
  );
